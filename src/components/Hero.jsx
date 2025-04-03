@@ -3,18 +3,19 @@ import React, { useRef, useState } from "react";
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
+
   const [isLoading, setIsLoading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
 
-  const totalVideos = 3;
+  const totalVideos = 4;
   const nextVideoRef = useRef(null);
 
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
-  const handleMiniVidClick = () => {
+  const handleMiniVdClick = () => {
     setHasClicked(true);
 
-    setCurrentIndex(upcomingVideoIndex);
+    setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
 
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
@@ -32,7 +33,7 @@ const Hero = () => {
         <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <div
-              onClick={handleMiniVidClick}
+              onClick={handleMiniVdClick}
               className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
             >
               <video
@@ -64,8 +65,14 @@ const Hero = () => {
             loop
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
+            onLoadedData={handleVideoLoad}
           />
         </div>
+
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
+          G<b>A</b>MING
+        </h1>
+
       </div>
     </div>
   );
