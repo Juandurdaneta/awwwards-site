@@ -57,11 +57,7 @@ body {
 
 /* Ejemplo de usar la API @utility: */
 @utility special-font {
-  /* Al menos una propiedad sobre la clase para que sea válida */
-  display: contents;
-
-  /* Puedes anidar para afectar elementos hijos, pseudo-clases, etc. */
-  & b {
+  b {
     font-family: var(--font-zentry);
     font-feature-settings: "ss01" on;
   }
