@@ -55,29 +55,29 @@ body {
   --font-robert-regular: "robert-regular", "sans-serif";
 }
 
+/* Ejemplo de usar la API @utility: */
+@utility special-font {
+  /* Al menos una propiedad sobre la clase para que sea válida */
+  display: contents;
+
+  /* Puedes anidar para afectar elementos hijos, pseudo-clases, etc. */
+  & b {
+    font-family: var(--font-zentry);
+    font-feature-settings: "ss01" on;
+  }
+}
+
+@utility border-hsla {
+  @apply border border-white/20;
+}
+
+@utility absolute-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
 /* 5) Capa de utilidades personalizadas en v4
    (Reemplaza al antiguo @utilities { ... }) */
 @layer utilities {
-  /* Ejemplo de usar la API @utility: */
-  @utility special-font {
-    /* Al menos una propiedad sobre la clase para que sea válida */
-    display: contents;
-
-    /* Puedes anidar para afectar elementos hijos, pseudo-clases, etc. */
-    & b {
-      font-family: var(--font-zentry);
-      font-feature-settings: "ss01" on;
-    }
-  }
-
-  @utility border-hsla {
-    @apply border border-white/20;
-  }
-
-  @utility absolute-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-  }
-
   /* Clases personalizadas que combinan utilidades con @apply */
   .nav-hover-btn {
     @apply relative ms-10 font-general text-xs uppercase text-blue-50 
@@ -262,8 +262,8 @@ body {
 .three-body__dot:nth-child(2)::after {
   bottom: 0;
   left: 0;
-  animation: wobble1 var(--uib-speed) infinite 
-    calc(var(--uib-speed) * -0.15) ease-in-out;
+  animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15)
+    ease-in-out;
 }
 
 .three-body__dot:nth-child(3) {
@@ -288,7 +288,8 @@ body {
 }
 
 @keyframes wobble1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0%) scale(1);
     opacity: 1;
   }
@@ -299,7 +300,8 @@ body {
 }
 
 @keyframes wobble2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0%) scale(1);
     opacity: 1;
   }
