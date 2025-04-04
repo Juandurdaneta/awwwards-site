@@ -71,6 +71,11 @@ body {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
+@utility bento-tilt_1 {
+  @apply relative border-hsla col-span-2 overflow-hidden rounded-md 
+    transition-transform duration-300 ease-out;
+}
+
 /* 5) Capa de utilidades personalizadas en v4
    (Reemplaza al antiguo @utilities { ... }) */
 @layer utilities {
@@ -122,11 +127,6 @@ body {
     transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
     transform-origin: 50% 50% -150px !important;
     will-change: opacity, transform;
-  }
-
-  .bento-tilt_1 {
-    @apply relative border-hsla col-span-2 overflow-hidden rounded-md 
-      transition-transform duration-300 ease-out;
   }
 
   .bento-tilt_2 {
